@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "TestPackages_v06_2012", "TestPackages_v06_2012\TestPackages_v06_2012.dtproj", "{B15F0061-9551-4736-9DBE-4841C4CB1A20}"
+EndProject
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Test_Packages_v08_2017", "Test_Packages_v08_2017\Test_Packages_v08_2017.dtproj", "{B16F4B63-DA37-48AA-A048-49E8FC444B08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B15F0061-9551-4736-9DBE-4841C4CB1A20}.Development|Default.ActiveCfg = Development
+		{B15F0061-9551-4736-9DBE-4841C4CB1A20}.Development|Default.Build.0 = Development
+		{B16F4B63-DA37-48AA-A048-49E8FC444B08}.Development|Default.ActiveCfg = Development
+		{B16F4B63-DA37-48AA-A048-49E8FC444B08}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0D5D6B5-B970-4B1A-815B-80E0E43452A0}
+	EndGlobalSection
+EndGlobal
