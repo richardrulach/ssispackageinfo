@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{681f1a0d-bbce-41c4-9646-7a651341596d}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -59,6 +59,10 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="post_deployment_scripts" />
+    <Folder Include="test\" />
+    <Folder Include="test\Tables\" />
+    <Folder Include="Security\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Source_Destination_Map.sql" />
@@ -69,5 +73,14 @@
     <Build Include="dbo\Tables\Executable.sql" />
     <Build Include="dbo\Tables\Destination.sql" />
     <Build Include="dbo\Tables\Connection.sql" />
+    <Build Include="test\Tables\Person_Destination.sql" />
+    <Build Include="test\Tables\Person_Source.sql" />
+    <Build Include="Security\test.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="post_deployment_scripts\test.Person_Source.sql" />
   </ItemGroup>
 </Project>
