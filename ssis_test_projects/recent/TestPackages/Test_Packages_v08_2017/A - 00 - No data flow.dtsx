@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable DTS:CreationDate="06/16/2019 15:37:07" DTS:CreationName="Microsoft.Package" DTS:CreatorComputerName="DEV100" DTS:CreatorName="richard" DTS:DTSID="{1021D902-E370-43AA-944B-07B8F4147A15}" DTS:ExecutableType="Microsoft.Package" DTS:LastModifiedProductVersion="" DTS:LocaleID="2057" DTS:ObjectName="A - 00 - No data flow" DTS:refId="Package" DTS:VersionBuild="0" DTS:VersionGUID="{E407DAC6-67B6-4C70-908D-C69A45408A04}" DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:Property DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager DTS:CreationName="OLEDB" DTS:DTSID="{7787940C-C01E-481C-AF73-CEC04546018D}" DTS:ObjectName="OleConn" DTS:refId="Package.ConnectionManagers[OleConn]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager DTS:ConnectionString="provider=SQLOLEDB;data source=.\SQLDEV;initial catalog=SsisPackageInfo;integrated security=SSPI" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable DTS:CreationName="" DTS:DTSID="{43F009BF-C4A8-4F5C-93EF-94AB32E36960}" DTS:IncludeInDebugDump="2345" DTS:Namespace="User" DTS:ObjectName="v_str_truncate_table">
+      <DTS:VariableValue DTS:DataType="8">
+                    TRUNCATE TABLE test.Town
+                </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable DTS:CreationName="Microsoft.ExecuteSQLTask" DTS:DTSID="{7A289E3B-CC16-4BA1-88B9-ADA69DBB8817}" DTS:ExecutableType="Microsoft.ExecuteSQLTask" DTS:LocaleID="-1" DTS:ObjectName="ESQL - CREATE TABLE" DTS:refId="Package\ESQL - CREATE TABLE" DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData SQLTask:Connection="OleConn" SQLTask:SqlStatementSource="&#xA;                        IF OBJECT_ID(N'test.Town') IS NULL&#xA;                        BEGIN&#xA;                         CREATE TABLE test.Town(&#xA;                          TownId int identity(1,1) NOT NULL PRIMARY KEY&#xA;                          ,[Name] NVARCHAR(100) NOT NULL&#xA;                          ,[Created] DATETIME DEFAULT(GETDATE()) NOT NULL&#xA;                         )&#xA;                        END &#xA;                    " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:CreationName="Microsoft.ExecuteSQLTask" DTS:DTSID="{07A40ED9-828B-4E9D-9B9F-213CBC60CD52}" DTS:ExecutableType="Microsoft.ExecuteSQLTask" DTS:LocaleID="-1" DTS:ObjectName="ESQL - TRUNCATE TABLE" DTS:refId="Package\ESQL - TRUNCATE TABLE" DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData SQLTask:Connection="OleConn" SQLTask:SqlStatementSource="User::v_str_truncate_table" SQLTask:SqlStmtSourceType="Variable" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable DTS:CreationName="Microsoft.ExecuteSQLTask" DTS:DTSID="{7DFE8206-C63B-4536-B41B-C0504FE687B0}" DTS:ExecutableType="Microsoft.ExecuteSQLTask" DTS:LocaleID="-1" DTS:ObjectName="TSQL - POPULATE TABLE" DTS:refId="Package\TSQL - POPULATE TABLE" DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData SQLTask:Connection="OleConn" SQLTask:SqlStatementSource="&#xA;                        INSERT INTO test.Town([Name])&#xA;                        VALUES ('London'),('New York'),('Swansea')&#xA;                    " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint DTS:CreationName="" DTS:DTSID="{A311067D-D06A-4EFF-83A0-C7644EB5432D}" DTS:From="Package\ESQL - CREATE TABLE" DTS:LogicalAnd="True" DTS:ObjectName="Constraint_ESQL - CREATE TABLE_To_ESQL - TRUNCATE TABLE" DTS:refId="Package.PrecedenceConstraints[Constraint_ESQL - CREATE TABLE_To_ESQL - TRUNCATE TABLE]" DTS:To="Package\ESQL - TRUNCATE TABLE" />
+    <DTS:PrecedenceConstraint DTS:CreationName="" DTS:DTSID="{9A5A6021-3C3B-461A-85DB-25E28D534856}" DTS:From="Package\ESQL - TRUNCATE TABLE" DTS:LogicalAnd="True" DTS:ObjectName="Constraint_ESQL - TRUNCATE TABLE_To_TSQL - POPULATE TABLE" DTS:refId="Package.PrecedenceConstraints[Constraint_ESQL - TRUNCATE TABLE_To_TSQL - POPULATE TABLE]" DTS:To="Package\TSQL - POPULATE TABLE" />
+  </DTS:PrecedenceConstraints>
+</DTS:Executable>
