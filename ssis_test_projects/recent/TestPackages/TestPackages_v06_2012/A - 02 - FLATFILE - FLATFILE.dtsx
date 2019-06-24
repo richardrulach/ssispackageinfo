@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable DTS:CreationDate="06/24/2019 22:28:34" DTS:CreationName="SSIS.Package.3" DTS:CreatorComputerName="DEV100" DTS:CreatorName="richard" DTS:DTSID="{7724ED40-E474-4199-B4A1-DB16FA57107A}" DTS:ExecutableType="SSIS.Package.3" DTS:LastModifiedProductVersion="" DTS:LocaleID="2057" DTS:ObjectName="A - 02 - FLATFILE - FLATFILE" DTS:refId="Package" DTS:VersionBuild="0" DTS:VersionGUID="{10026492-9723-4D14-8930-4E7C71FC5932}" DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:Property DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager DTS:CreationName="FLATFILE" DTS:DTSID="{4DA572A0-8FFA-4D5F-B0DA-2674D9309831}" DTS:ObjectName="FlatFileConn_Source" DTS:refId="Package.ConnectionManagers[FlatFileConn_Source]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager DTS:CodePage="1252" DTS:ColumnNamesInFirstDataRow="True" DTS:ConnectionString="c:\temp\FlatFile_Source.csv" DTS:Format="Delimited" DTS:HeaderRowDelimiter="_x000D__x000A_" DTS:LocaleID="2057" DTS:RowDelimiter="_x000A_" DTS:TextQualifier="_x003C_none_x003E_">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x002C_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="130" DTS:DTSID="{685C20F5-80E3-4FE3-A9E6-D0B6DA75C02E}" DTS:MaximumWidth="100" DTS:ObjectName="FullName" DTS:TextQualified="True" />
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x000A_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="3" DTS:DTSID="{94E5BDB3-F0A4-4B93-931D-89324590B404}" DTS:ObjectName="Age" DTS:TextQualified="True" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager DTS:CreationName="FLATFILE" DTS:DTSID="{C0C5B2FF-DD1F-4E12-8459-B8474332108F}" DTS:ObjectName="FlatFileConn_Destination" DTS:refId="Package.ConnectionManagers[FlatFileConn_Destination]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager DTS:CodePage="1252" DTS:ColumnNamesInFirstDataRow="True" DTS:ConnectionString="c:\temp\FlatFile_Destination.csv" DTS:Format="Delimited" DTS:HeaderRowDelimiter="_x000D__x000A_" DTS:LocaleID="2057" DTS:RowDelimiter="_x000A_" DTS:TextQualifier="_x003C_none_x003E_">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x002C_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="130" DTS:DTSID="{D0651735-3B8C-4991-884F-8EC6FFB7BF45}" DTS:MaximumWidth="100" DTS:ObjectName="FullName" DTS:TextQualified="True" />
+            <DTS:FlatFileColumn DTS:ColumnDelimiter="_x000A_" DTS:ColumnType="Delimited" DTS:CreationName="" DTS:DataType="3" DTS:DTSID="{914F8A7F-88FC-4F5E-8E17-2979F27052A7}" DTS:ObjectName="Age" DTS:TextQualified="True" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable DTS:CreationName="SSIS.Pipeline.3" DTS:DTSID="{5D51CAD5-67DE-4F95-A507-796A72DBE13E}" DTS:ExecutableType="SSIS.Pipeline.3" DTS:LocaleID="-1" DTS:ObjectName="DFT - FLATFILE - FLATFILE" DTS:refId="Package\DFT - FLATFILE - FLATFILE" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <pipeline BLOBTempStoragePath="" bufferTempStoragePath="" name="pipelineXml" version="1">
+          <components>
+            <component componentClassID="{D23FD76B-F51D-420F-BBCB-19CBF6AC1AB4}" contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1" localeId="2057" name="SRC - Flat File" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File" usesDispositions="true" version="1">
+              <connections>
+                <connection connectionManagerID="{4DA572A0-8FFA-4D5F-B0DA-2674D9309831}:external" connectionManagerRefId="Package.ConnectionManagers[FlatFileConn_Source]" name="FlatFileConnection" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Connections[FlatFileConnection]" />
+              </connections>
+              <outputs>
+                <output name="Output" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output]">
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn dataType="wstr" length="100" name="FullName" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].ExternalColumns[FullName]" />
+                    <externalMetadataColumn dataType="i4" name="Age" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].ExternalColumns[Age]" />
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn dataType="wstr" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].ExternalColumns[FullName]" length="100" lineageId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].Columns[FullName]" name="FullName" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].Columns[FullName]" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property dataType="System.Boolean" description="Indicates whether the column uses the faster, locale-neutral parsing routines." name="FastParse">false</property>
+                        <property dataType="System.Boolean" description="Indicates whether the data is in binary format." name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].ExternalColumns[Age]" lineageId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].Columns[Age]" name="Age" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].Columns[Age]" truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property dataType="System.Boolean" description="Indicates whether the column uses the faster, locale-neutral parsing routines." name="FastParse">false</property>
+                        <property dataType="System.Boolean" description="Indicates whether the data is in binary format." name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                </output>
+                <output isErrorOut="true" name="Error" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Error]">
+                  <externalMetadataColumns />
+                  <outputColumns>
+                    <outputColumn codePage="1252" dataType="text" description="Flat File Source Error Output Column" lineageId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Error].Columns[Flat File Source Error Output Column]" name="Flat File Source Error Output Column" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Error].Columns[Flat File Source Error Output Column]" />
+                    <outputColumn dataType="i4" lineageId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Error].Columns[ErrorCode]" name="ErrorCode" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Error].Columns[ErrorCode]" specialFlags="1" />
+                    <outputColumn dataType="i4" lineageId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Error].Columns[ErrorColumn]" name="ErrorColumn" refId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Error].Columns[ErrorColumn]" specialFlags="2" />
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property dataType="System.Boolean" description="Specifies whether zero-length columns are treated as null." name="RetainNulls">false</property>
+                <property dataType="System.String" description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated." name="FileNameColumnName" />
+              </properties>
+            </component>
+            <component componentClassID="{8DA75FED-1B7C-407D-B2AD-2B24209CCCA4}" contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0" localeId="2057" name="DST - Flat File" refId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File">
+              <connections>
+                <connection connectionManagerID="{C0C5B2FF-DD1F-4E12-8459-B8474332108F}:external" connectionManagerRefId="Package.ConnectionManagers[FlatFileConn_Destination]" name="FlatFileConnection" refId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Connections[FlatFileConnection]" />
+              </connections>
+              <inputs>
+                <input hasSideEffects="true" name="SRC - Flat File_Output_DST - Flat File" refId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File]">
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn dataType="wstr" length="100" name="FullName" refId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File].ExternalColumns[FullName]" />
+                    <externalMetadataColumn dataType="i4" name="Age" refId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File].ExternalColumns[Age]" />
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn cachedDataType="wstr" cachedLength="100" cachedName="FullName" externalMetadataColumnId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File].ExternalColumns[FullName]" lineageId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].Columns[FullName]" name="" refId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File].Columns[FullName]" />
+                    <inputColumn cachedDataType="i4" cachedName="Age" externalMetadataColumnId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File].ExternalColumns[Age]" lineageId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output].Columns[Age]" name="" refId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File].Columns[Age]" />
+                  </inputColumns>
+                </input>
+              </inputs>
+              <properties>
+                <property dataType="System.Boolean" description="Specifies whether the data will overwrite or append to the destination file." name="Overwrite">true</property>
+                <property dataType="System.Null" description="Specifies the text to write to the destination file before any data is written." expressionType="Notify" name="Header" />
+              </properties>
+            </component>
+          </components>
+          <paths>
+            <path endId="Package\DFT - FLATFILE - FLATFILE\DST - Flat File.Inputs[SRC - Flat File_Output_DST - Flat File]" name="SRC - Flat File_Output_DST - Flat File" refId="Package\DFT - FLATFILE - FLATFILE.Paths[SRC - Flat File_Output_DST - Flat File]" startId="Package\DFT - FLATFILE - FLATFILE\SRC - Flat File.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

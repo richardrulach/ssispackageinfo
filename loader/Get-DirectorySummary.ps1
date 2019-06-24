@@ -5,6 +5,7 @@ function Get-SsisSummary {
 
     [CmdletBinding()]
     param (
+        [Parameter(Mandatory=$true)]
         [string[]] $Directory 
     )
 
@@ -17,7 +18,6 @@ function Get-SsisSummary {
         foreach ($d in $Directory){
             write-host "$d"
             $files = Get-ChildItem -Path $d -File -Recurse -Filter "*.dtsx" | ? { $_.FullName -notlike "*\obj\*" } 
-#            "$($files.Count) FILES`n"
 
             foreach ($f in $files){
                 $version = ($f | select-xml -XPath "/DTS:Executable/DTS:Property[@DTS:Name='PackageFormatVersion']" -Namespace $ns).Node.InnerText
@@ -85,16 +85,12 @@ function Get-SsisSummary {
     END {}
 }
 
-#Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects", "C:\DEVELOPMENT\SSIS_CARDANO\SSIS" | ft -property name, version
-#Get-SsisSummary -Directory "C:\DEVELOPMENT\SSIS_CARDANO\SSIS" | ft -property name, version, execSQL
+#$summaries = Get-SsisSummary -Directory "C:\DEVELOPMENT\SSIS_CARDANO\SSIS"
 
-Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects" | ft -property name, version, pipelines, execSQL
-
-
-$summaries = Get-SsisSummary -Directory "C:\DEVELOPMENT\SSIS_CARDANO\SSIS"
+$summaries = Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects"
 
 $summaries | 
     Group-Object -property Version | 
-    %{ New-Object -Type PSObject -Property @{ "Count" = $_.Count; "VersionNumber" = $_.Name }}
+    %{ New-Object -Type PSObject -Property @{ "Count" = $_.Count; "VersionNumber" = $_.Name } }
 
 
