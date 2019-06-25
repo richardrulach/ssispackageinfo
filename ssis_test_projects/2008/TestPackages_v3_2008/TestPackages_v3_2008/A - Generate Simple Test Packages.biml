@@ -1,0 +1,104 @@
+<Biml xmlns="http://schemas.varigence.com/biml.xsd">
+  <FileFormats>
+    <FlatFileFormat Name="CsvFormat" RowDelimiter="LF" ColumnNamesInFirstDataRow="true" IsUnicode="false">
+      <Columns>
+        <Column Name="FullName" DataType="String" Length="100" Delimiter="Comma" />
+        <Column Name="Age" DataType="Int32" Length="20" Delimiter="LF" />
+      </Columns>
+    </FlatFileFormat>
+  </FileFormats>
+
+  <Connections>
+    <OleDbConnection
+        Name="OleConn"
+        ConnectionString="Provider=SQLOLEDB;Data Source=.\SQLDEV;Initial Catalog=SsisPackageInfo;Integrated Security=SSPI;">
+    </OleDbConnection>
+
+    <FlatFileConnection
+        Name="FlatFileConn_Source"
+        FileFormat="CsvFormat"
+        FilePath="c:\temp\FlatFile_Source.csv">
+    </FlatFileConnection>
+
+    <FlatFileConnection
+        Name="FlatFileConn_Destination"
+        FileFormat="CsvFormat"
+        FilePath="c:\temp\FlatFile_Destination.csv">
+    </FlatFileConnection>
+  </Connections>
+
+  <Packages>
+    <!--
+            SIMPLE SOURCE TO DESTINATION        
+        -->
+    <Package Name="A - 00 - No data flow" ProtectionLevel="EncryptSensitiveWithUserKey" ConstraintMode="Linear">
+      <Connections>
+        <Connection ConnectionName="OleConn" Id="OleConn" />
+      </Connections>
+      <Variables>
+        <Variable Name="v_str_truncate_table" DataType="String">
+          TRUNCATE TABLE test.Town
+        </Variable>
+      </Variables>
+      <Tasks>
+        <ExecuteSQL Name="ESQL - CREATE TABLE" ConnectionName="OleConn" >
+          <DirectInput>
+            IF OBJECT_ID(N'test.Town') IS NULL
+            BEGIN
+            CREATE TABLE test.Town(
+            TownId int identity(1,1) NOT NULL PRIMARY KEY
+            ,[Name] NVARCHAR(100) NOT NULL
+            ,[Created] DATETIME DEFAULT(GETDATE()) NOT NULL
+            )
+            END
+          </DirectInput>
+        </ExecuteSQL>
+        <ExecuteSQL Name="ESQL - TRUNCATE TABLE" ConnectionName="OleConn" >
+          <VariableInput VariableName="User.v_str_truncate_table"></VariableInput>
+        </ExecuteSQL>
+        <ExecuteSQL Name="TSQL - POPULATE TABLE" ConnectionName="OleConn">
+          <DirectInput>
+            INSERT INTO test.Town([Name])
+            VALUES ('London'),('New York'),('Swansea')
+          </DirectInput>
+        </ExecuteSQL>
+      </Tasks>
+    </Package>
+
+    <Package Name="A - 01 - OLEDB - OLEDB" ProtectionLevel="EncryptSensitiveWithUserKey">
+      <Connections>
+        <Connection ConnectionName="OleConn" Id="OleConn" />
+      </Connections>
+      <Tasks>
+        <Dataflow Name="DFT - OLEDEB - OLEDB">
+          <Transformations>
+            <OleDbSource Name="OLEDB - Source" ConnectionName="OleConn">
+              <DirectInput>Select Fullname, Age from test.person_source</DirectInput>
+            </OleDbSource>
+            <OleDbDestination Name="OLEDB - Destination" ConnectionName="OleConn">
+              <ExternalTableOutput Table="test.person_destination" />
+            </OleDbDestination>
+          </Transformations>
+        </Dataflow>
+      </Tasks>
+    </Package>
+
+    <Package Name="A - 02 - FLATFILE - FLATFILE" ProtectionLevel="EncryptSensitiveWithUserKey">
+      <Connections>
+        <Connection ConnectionName="FlatFileConn_Source" Id="FlatFileConn" />
+        <Connection ConnectionName="FlatFileConn_Destination" Id="FlatFileConn" />
+      </Connections>
+
+      <Tasks>
+        <Dataflow Name="DFT - FLATFILE - FLATFILE">
+          <Transformations>
+            <FlatFileSource Name="SRC - Flat File" ConnectionName="FlatFileConn_Source"></FlatFileSource>
+            <FlatFileDestination Name="DST - Flat File" ConnectionName="FlatFileConn_Destination"></FlatFileDestination>
+          </Transformations>
+        </Dataflow>
+      </Tasks>
+    </Package>
+
+
+  </Packages>
+</Biml>

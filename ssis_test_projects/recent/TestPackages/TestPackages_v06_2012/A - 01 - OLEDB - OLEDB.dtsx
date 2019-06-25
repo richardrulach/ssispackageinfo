@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable DTS:CreationDate="06/24/2019 22:28:34" DTS:CreationName="SSIS.Package.3" DTS:CreatorComputerName="DEV100" DTS:CreatorName="richard" DTS:DTSID="{BCF06CA9-CB0B-4B8F-804E-05DD5180F499}" DTS:ExecutableType="SSIS.Package.3" DTS:LastModifiedProductVersion="" DTS:LocaleID="2057" DTS:ObjectName="A - 01 - OLEDB - OLEDB" DTS:refId="Package" DTS:VersionBuild="0" DTS:VersionGUID="{AFE53698-43A8-47DD-9D6F-E21B46C3E021}" DTS:VersionMajor="0" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:Property DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager DTS:CreationName="OLEDB" DTS:DTSID="{06CC4A82-FB69-46B5-BFB8-BBE327F95F77}" DTS:ObjectName="OleConn" DTS:refId="Package.ConnectionManagers[OleConn]">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager DTS:ConnectionString="provider=SQLOLEDB;data source=.\SQLDEV;initial catalog=SsisPackageInfo;integrated security=SSPI" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Executables>
+    <DTS:Executable DTS:CreationName="SSIS.Pipeline.3" DTS:DTSID="{E71575E3-D92A-4B15-BBF6-131ADEE20986}" DTS:ExecutableType="SSIS.Pipeline.3" DTS:LocaleID="-1" DTS:ObjectName="DFT - OLEDEB - OLEDB" DTS:refId="Package\DFT - OLEDEB - OLEDB" DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:ObjectData>
+        <pipeline BLOBTempStoragePath="" bufferTempStoragePath="" name="pipelineXml" version="1">
+          <components>
+            <component componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}" contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7" name="OLEDB - Source" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source" usesDispositions="true" version="7">
+              <connections>
+                <connection connectionManagerID="{06CC4A82-FB69-46B5-BFB8-BBE327F95F77}:external" connectionManagerRefId="Package.ConnectionManagers[OleConn]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Connections[OleDbConnection]" />
+              </connections>
+              <outputs>
+                <output name="Output" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output]">
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn codePage="1252" dataType="str" length="50" name="Fullname" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].ExternalColumns[Fullname]" />
+                    <externalMetadataColumn dataType="i4" name="Age" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].ExternalColumns[Age]" />
+                  </externalMetadataColumns>
+                  <outputColumns>
+                    <outputColumn codePage="1252" dataType="str" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].ExternalColumns[Fullname]" length="50" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].Columns[Fullname]" name="Fullname" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].Columns[Fullname]" truncationRowDisposition="FailComponent" />
+                    <outputColumn dataType="i4" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" externalMetadataColumnId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].ExternalColumns[Age]" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].Columns[Age]" name="Age" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].Columns[Age]" truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                </output>
+                <output isErrorOut="true" name="Error" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error]">
+                  <externalMetadataColumns />
+                  <outputColumns>
+                    <outputColumn codePage="1252" dataType="str" length="50" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[Fullname]" name="Fullname" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[Fullname]" />
+                    <outputColumn dataType="i4" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[Age]" name="Age" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[Age]" />
+                    <outputColumn dataType="i4" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[ErrorCode]" name="ErrorCode" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[ErrorCode]" specialFlags="1" />
+                    <outputColumn dataType="i4" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[ErrorColumn]" name="ErrorColumn" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Error].Columns[ErrorColumn]" specialFlags="2" />
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset" />
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable" />
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">Select Fullname, Age from test.person_source</property>
+                <property dataType="System.String" description="The variable that contains the SQL command to be executed." name="SqlCommandVariable" />
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode" typeConverter="AccessMode">2</property>
+                <property dataType="System.String" description="The mappings between the parameters in the SQL command and variables." name="ParameterMapping" />
+              </properties>
+            </component>
+            <component componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}" contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4" name="OLEDB - Destination" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination" usesDispositions="true" version="4">
+              <connections>
+                <connection connectionManagerID="{06CC4A82-FB69-46B5-BFB8-BBE327F95F77}:external" connectionManagerRefId="Package.ConnectionManagers[OleConn]" description="The OLE DB runtime connection used to access the database." name="OleDbConnection" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Connections[OleDbConnection]" />
+              </connections>
+              <inputs>
+                <input errorOrTruncationOperation="Insert" errorRowDisposition="FailComponent" hasSideEffects="true" name="OLEDB - Source_Output_OLEDB - Destination" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination]">
+                  <externalMetadataColumns isUsed="True">
+                    <externalMetadataColumn dataType="i4" name="Person_DestinationId" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination].ExternalColumns[Person_DestinationId]" />
+                    <externalMetadataColumn codePage="1252" dataType="str" length="50" name="FullName" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination].ExternalColumns[FullName]" />
+                    <externalMetadataColumn dataType="i4" name="Age" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination].ExternalColumns[Age]" />
+                  </externalMetadataColumns>
+                  <inputColumns>
+                    <inputColumn cachedCodepage="1252" cachedDataType="str" cachedLength="50" cachedName="Fullname" externalMetadataColumnId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination].ExternalColumns[FullName]" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].Columns[Fullname]" name="" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination].Columns[Fullname]" />
+                    <inputColumn cachedDataType="i4" cachedName="Age" externalMetadataColumnId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination].ExternalColumns[Age]" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output].Columns[Age]" name="" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination].Columns[Age]" />
+                  </inputColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output exclusionGroup="1" isErrorOut="true" name="Error" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Outputs[Error]" synchronousInputId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination]">
+                  <externalMetadataColumns />
+                  <outputColumns>
+                    <outputColumn dataType="i4" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Outputs[Error].Columns[ErrorCode]" name="ErrorCode" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Outputs[Error].Columns[ErrorCode]" specialFlags="1" />
+                    <outputColumn dataType="i4" lineageId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Outputs[Error].Columns[ErrorColumn]" name="ErrorColumn" refId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Outputs[Error].Columns[ErrorColumn]" specialFlags="2" />
+                  </outputColumns>
+                </output>
+              </outputs>
+              <properties>
+                <property dataType="System.Int32" description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out." name="CommandTimeout">0</property>
+                <property dataType="System.String" description="Specifies the name of the database object used to open a rowset." name="OpenRowset">test.person_destination</property>
+                <property dataType="System.String" description="Specifies the variable that contains the name of the database object used to open a rowset." name="OpenRowsetVariable" />
+                <property dataType="System.String" description="The SQL command to be executed." name="SqlCommand" UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+                <property dataType="System.Int32" description="Specifies the column code page to use when code page information is unavailable from the data source." name="DefaultCodePage">1252</property>
+                <property dataType="System.Boolean" description="Forces the use of the DefaultCodePage property value when describing character data." name="AlwaysUseDefaultCodePage">false</property>
+                <property dataType="System.Int32" description="Specifies the mode used to access the database." name="AccessMode">3</property>
+                <property dataType="System.Boolean" description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on." name="FastLoadKeepIdentity">false</property>
+                <property dataType="System.Boolean" description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on." name="FastLoadKeepNulls">false</property>
+                <property dataType="System.String" description="Specifies options to be used with fast load.  Applies only if fast load is turned on." name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property dataType="System.Int32" description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on." name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+            </component>
+          </components>
+          <paths>
+            <path endId="Package\DFT - OLEDEB - OLEDB\OLEDB - Destination.Inputs[OLEDB - Source_Output_OLEDB - Destination]" name="OLEDB - Source_Output_OLEDB - Destination" refId="Package\DFT - OLEDEB - OLEDB.Paths[OLEDB - Source_Output_OLEDB - Destination]" startId="Package\DFT - OLEDEB - OLEDB\OLEDB - Source.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+</DTS:Executable>

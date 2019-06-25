@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DEV100</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAcHzuxJz/LUmu/FAVuTzGjgAAAAACAAAAAAAQZgAAAAEAACAAAAC8yYIeupOKY5fTFDRyOj1vr263IO0gWrxoPg4h/p5PwAAAAAAOgAAAAAIAACAAAACO874x3Ad32RPYcRjQXMr4KG97YY0ZTwSN2PC+3t9m65AAAAAaTQzoWrArZJc0GfuacSTRGpBm9VQYQjg2cbOwEFQpfWmOVsi2YX7TFnvnVBJo3U/usgCohvRdwbkYe+ZlcTySZxBbZyRUUDvhQltPqi35MlT3oMSDGIVprWKaNtkOQ6+K+PKUQdTjCNXlRmSRK+3DTS5GI/EGtO+RKrWkg9BZ/7vGH0kMuvzCTopidcAwpZ5AAAAA22UaUs2cfclr+aKqWgLjWwikBcsfueLbVU2A+dvvk40POh5/wmNYbLRN05ZAHkoICvPdU1CuWA14LRfRI55IlQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAcHzuxJz/LUmu/FAVuTzGjgAAAAACAAAAAAAQZgAAAAEAACAAAADAdGjme7TH1JSq+eBWZxzJ97WC5f4xQRB5Myc4O9sL0wAAAAAOgAAAAAIAACAAAACjtpXtnQk4GO4RyQ9tzsnyzjM46BTgx2XeEO2DWzH8k5AAAACwGNKeLv90OLcNPhwImDFlnwtU8i26BaMFi33K+H9uwAhhyAj2ap/59KOToE7HndTVTYi7F8nIAudI9HK97kvYx5FFrrWDYRXJai1XIpVLHC3l+mGMswxoKo6pyQ26lECBYxCLTf/hZ0NF/QSfgXsQ3exBlby4T5VOtg06zAVRAUPAEf/h/gbSngGitfc5pv5AAAAAiVgdpXezABLp5bNvZyzyxWXiggQwtzTGgLZoVj38aIP79yD1x4Vfa+Y949pIDyp54vVzoNTPOfrPyCuSYS14SA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages />
@@ -39,7 +39,12 @@
     </Manifest>
   </DeploymentModelSpecificContent>
   <ControlFlowParts />
-  <Miscellaneous />
+  <Miscellaneous>
+    <ProjectItem>
+      <Name>A - Generate Simple Test Packages.biml</Name>
+      <FullPath>A - Generate Simple Test Packages.biml</FullPath>
+    </ProjectItem>
+  </Miscellaneous>
   <Configurations>
     <Configuration>
       <Name>Development</Name>
