@@ -1,368 +1,240 @@
-<?xml version="1.0"?><DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts" DTS:ExecutableType="SSIS.Package.2">
-<DTS:Property DTS:Name="PackageFormatVersion">3</DTS:Property>
-<DTS:Property DTS:Name="VersionComments"></DTS:Property>
-<DTS:Property DTS:Name="CreatorName">richard</DTS:Property>
-<DTS:Property DTS:Name="CreatorComputerName">DEV100</DTS:Property>
-<DTS:Property DTS:Name="CreationDate" DTS:DataType="7">6/24/2019 10:32:44 PM</DTS:Property>
-<DTS:Property DTS:Name="PackageType">0</DTS:Property>
-<DTS:Property DTS:Name="ProtectionLevel">1</DTS:Property>
-<DTS:Property DTS:Name="MaxConcurrentExecutables">-1</DTS:Property>
-<DTS:Property DTS:Name="PackagePriorityClass">0</DTS:Property>
-<DTS:Property DTS:Name="VersionMajor">0</DTS:Property>
-<DTS:Property DTS:Name="VersionMinor">0</DTS:Property>
-<DTS:Property DTS:Name="VersionBuild">1</DTS:Property>
-<DTS:Property DTS:Name="VersionGUID">{5DD0AC42-DA5F-4075-B974-4E8201557B8E}</DTS:Property>
-<DTS:Property DTS:Name="EnableConfig">0</DTS:Property>
-<DTS:Property DTS:Name="CheckpointFileName"></DTS:Property>
-<DTS:Property DTS:Name="SaveCheckpoints">0</DTS:Property>
-<DTS:Property DTS:Name="CheckpointUsage">0</DTS:Property>
-<DTS:Property DTS:Name="SuppressConfigurationWarnings">0</DTS:Property>
-<DTS:ConnectionManager>
-<DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">FlatFileConn_Destination</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{6C2A8BE8-4EBD-4ED9-8431-9E8D2F69C98A}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName">FLATFILE</DTS:Property><DTS:ObjectData><DTS:ConnectionManager>
-<DTS:Property DTS:Name="FileUsageType">0</DTS:Property>
-<DTS:Property DTS:Name="Format">Delimited</DTS:Property>
-<DTS:Property DTS:Name="LocaleID">2057</DTS:Property>
-<DTS:Property DTS:Name="Unicode">0</DTS:Property>
-<DTS:Property DTS:Name="HeaderRowsToSkip">0</DTS:Property>
-<DTS:Property DTS:Name="HeaderRowDelimiter" xml:space="preserve">_x000D__x000A_</DTS:Property>
-<DTS:Property DTS:Name="ColumnNamesInFirstDataRow">-1</DTS:Property>
-<DTS:Property DTS:Name="RowDelimiter" xml:space="preserve">_x000A_</DTS:Property>
-<DTS:Property DTS:Name="DataRowsToSkip">0</DTS:Property>
-<DTS:Property DTS:Name="TextQualifier">&lt;none&gt;</DTS:Property>
-<DTS:Property DTS:Name="CodePage">1252</DTS:Property>
-<DTS:FlatFileColumn>
-<DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
-<DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x002C_</DTS:Property>
-<DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
-<DTS:Property DTS:Name="MaximumWidth">100</DTS:Property>
-<DTS:Property DTS:Name="DataType">130</DTS:Property>
-<DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
-<DTS:Property DTS:Name="DataScale">0</DTS:Property>
-<DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">FullName</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{F1089AAE-C1B2-4903-8290-C5E507C9C660}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:FlatFileColumn>
-<DTS:FlatFileColumn>
-<DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
-<DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x000A_</DTS:Property>
-<DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
-<DTS:Property DTS:Name="MaximumWidth">0</DTS:Property>
-<DTS:Property DTS:Name="DataType">3</DTS:Property>
-<DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
-<DTS:Property DTS:Name="DataScale">0</DTS:Property>
-<DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">Age</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{DF61B236-8BE7-4B87-A32A-14B57B45EB61}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:FlatFileColumn>
-<DTS:Property DTS:Name="ConnectionString">c:\temp\FlatFile_Destination.csv</DTS:Property></DTS:ConnectionManager></DTS:ObjectData></DTS:ConnectionManager>
-<DTS:ConnectionManager>
-<DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">FlatFileConn_Source</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{2EA04720-DCC5-4D5D-A17F-A682E59CD41D}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName">FLATFILE</DTS:Property><DTS:ObjectData><DTS:ConnectionManager>
-<DTS:Property DTS:Name="FileUsageType">0</DTS:Property>
-<DTS:Property DTS:Name="Format">Delimited</DTS:Property>
-<DTS:Property DTS:Name="LocaleID">2057</DTS:Property>
-<DTS:Property DTS:Name="Unicode">0</DTS:Property>
-<DTS:Property DTS:Name="HeaderRowsToSkip">0</DTS:Property>
-<DTS:Property DTS:Name="HeaderRowDelimiter" xml:space="preserve">_x000D__x000A_</DTS:Property>
-<DTS:Property DTS:Name="ColumnNamesInFirstDataRow">-1</DTS:Property>
-<DTS:Property DTS:Name="RowDelimiter" xml:space="preserve">_x000A_</DTS:Property>
-<DTS:Property DTS:Name="DataRowsToSkip">0</DTS:Property>
-<DTS:Property DTS:Name="TextQualifier">&lt;none&gt;</DTS:Property>
-<DTS:Property DTS:Name="CodePage">1252</DTS:Property>
-<DTS:FlatFileColumn>
-<DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
-<DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x002C_</DTS:Property>
-<DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
-<DTS:Property DTS:Name="MaximumWidth">100</DTS:Property>
-<DTS:Property DTS:Name="DataType">130</DTS:Property>
-<DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
-<DTS:Property DTS:Name="DataScale">0</DTS:Property>
-<DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">FullName</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{3D7E7C69-4B16-4BFB-A984-481E1309791B}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:FlatFileColumn>
-<DTS:FlatFileColumn>
-<DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
-<DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x000A_</DTS:Property>
-<DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
-<DTS:Property DTS:Name="MaximumWidth">0</DTS:Property>
-<DTS:Property DTS:Name="DataType">3</DTS:Property>
-<DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
-<DTS:Property DTS:Name="DataScale">0</DTS:Property>
-<DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">Age</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{7F3AB917-FD1B-4692-96B1-FF28DC88A345}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:FlatFileColumn>
-<DTS:Property DTS:Name="ConnectionString">c:\temp\FlatFile_Source.csv</DTS:Property></DTS:ConnectionManager></DTS:ObjectData></DTS:ConnectionManager>
-<DTS:Property DTS:Name="LastModifiedProductVersion">10.50.1600.1</DTS:Property>
-<DTS:Property DTS:Name="ForceExecValue">0</DTS:Property>
-<DTS:Property DTS:Name="ExecValue" DTS:DataType="3">0</DTS:Property>
-<DTS:Property DTS:Name="ForceExecutionResult">-1</DTS:Property>
-<DTS:Property DTS:Name="Disabled">0</DTS:Property>
-<DTS:Property DTS:Name="FailPackageOnFailure">0</DTS:Property>
-<DTS:Property DTS:Name="FailParentOnFailure">0</DTS:Property>
-<DTS:Property DTS:Name="MaxErrorCount">1</DTS:Property>
-<DTS:Property DTS:Name="ISOLevel">1048576</DTS:Property>
-<DTS:Property DTS:Name="LocaleID">2057</DTS:Property>
-<DTS:Property DTS:Name="TransactionOption">1</DTS:Property>
-<DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
-<DTS:LoggingOptions>
-<DTS:Property DTS:Name="LoggingMode">0</DTS:Property>
-<DTS:Property DTS:Name="FilterKind">1</DTS:Property>
-<DTS:Property DTS:Name="EventFilter" DTS:DataType="8"></DTS:Property></DTS:LoggingOptions>
-<DTS:Executable DTS:ExecutableType="SSIS.Pipeline.2">
-<DTS:Property DTS:Name="ExecutionLocation">0</DTS:Property>
-<DTS:Property DTS:Name="ExecutionAddress"></DTS:Property>
-<DTS:Property DTS:Name="TaskContact">Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1</DTS:Property>
-<DTS:Property DTS:Name="ForceExecValue">0</DTS:Property>
-<DTS:Property DTS:Name="ExecValue" DTS:DataType="3">0</DTS:Property>
-<DTS:Property DTS:Name="ForceExecutionResult">-1</DTS:Property>
-<DTS:Property DTS:Name="Disabled">0</DTS:Property>
-<DTS:Property DTS:Name="FailPackageOnFailure">0</DTS:Property>
-<DTS:Property DTS:Name="FailParentOnFailure">0</DTS:Property>
-<DTS:Property DTS:Name="MaxErrorCount">1</DTS:Property>
-<DTS:Property DTS:Name="ISOLevel">1048576</DTS:Property>
-<DTS:Property DTS:Name="LocaleID">-1</DTS:Property>
-<DTS:Property DTS:Name="TransactionOption">1</DTS:Property>
-<DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
-<DTS:LoggingOptions>
-<DTS:Property DTS:Name="LoggingMode">0</DTS:Property>
-<DTS:Property DTS:Name="FilterKind">1</DTS:Property>
-<DTS:Property DTS:Name="EventFilter" DTS:DataType="8"></DTS:Property></DTS:LoggingOptions>
-<DTS:Property DTS:Name="ObjectName">DFT - FLATFILE - FLATFILE</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{5695134D-0589-4268-A1D2-91C6CA6FBB32}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName">SSIS.Pipeline.2</DTS:Property>
-<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property><DTS:ObjectData><pipeline id="0" name="pipelineXml" description="pipelineXml" defaultBufferMaxRows="10000" engineThreads="10" defaultBufferSize="10485760" BLOBTempStoragePath="" bufferTempStoragePath="" runInOptimizedMode="true">
-<components>
-<component id="1" name="SRC - Flat File" componentClassID="{5ACD952A-F16A-41D8-A681-713640837664}" description="" localeId="2057" usesDispositions="true" validateExternalMetadata="True" version="1" pipelineVersion="0" contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
-<properties>
-<property id="2" name="RetainNulls" dataType="System.Boolean" state="default" isArray="false" description="Specifies whether zero-length columns are treated as null." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
-<property id="3" name="FileNameColumnName" dataType="System.String" state="default" isArray="false" description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated." typeConverter="" UITypeEditor="" containsID="false" expressionType="None"></property></properties>
-<connections>
-<connection id="4" name="FlatFileConnection" description="" connectionManagerID="{2EA04720-DCC5-4D5D-A17F-A682E59CD41D}"/></connections>
-<outputs>
-<output id="5" name="Output" description="" exclusionGroup="0" synchronousInputId="0" deleteOutputOnPathDetached="false" hasSideEffects="false" dangling="false" isErrorOut="false" isSorted="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed"><outputColumns>
-<outputColumn id="10" name="FullName" description="" lineageId="10" precision="0" scale="0" length="100" dataType="wstr" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="0" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" truncationRowDisposition="FailComponent" externalMetadataColumnId="8" mappedColumnId="0"><properties>
-<property id="11" name="FastParse" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the column uses the faster, locale-neutral parsing routines." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
-<property id="12" name="UseBinaryFormat" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the data is in binary format." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property></properties></outputColumn>
-<outputColumn id="13" name="Age" description="" lineageId="13" precision="0" scale="0" length="0" dataType="i4" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="0" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" truncationRowDisposition="FailComponent" externalMetadataColumnId="9" mappedColumnId="0"><properties>
-<property id="14" name="FastParse" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the column uses the faster, locale-neutral parsing routines." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
-<property id="15" name="UseBinaryFormat" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the data is in binary format." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property></properties></outputColumn></outputColumns><externalMetadataColumns isUsed="True">
-<externalMetadataColumn id="8" name="FullName" description="" precision="0" scale="0" length="100" dataType="wstr" codePage="0" mappedColumnId="0"/>
-<externalMetadataColumn id="9" name="Age" description="" precision="0" scale="0" length="0" dataType="i4" codePage="0" mappedColumnId="0"/></externalMetadataColumns></output>
-<output id="6" name="Error" description="" exclusionGroup="0" synchronousInputId="0" deleteOutputOnPathDetached="false" hasSideEffects="false" dangling="false" isErrorOut="true" isSorted="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed"><outputColumns>
-<outputColumn id="7" name="Flat File Source Error Output Column" description="Flat File Source Error Output Column" lineageId="7" precision="0" scale="0" length="0" dataType="text" codePage="1252" sortKeyPosition="0" comparisonFlags="0" specialFlags="0" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="0" mappedColumnId="0"/>
-<outputColumn id="16" name="ErrorCode" description="" lineageId="16" precision="0" scale="0" length="0" dataType="i4" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="1" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="0" mappedColumnId="0"/>
-<outputColumn id="17" name="ErrorColumn" description="" lineageId="17" precision="0" scale="0" length="0" dataType="i4" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="2" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="0" mappedColumnId="0"/></outputColumns><externalMetadataColumns isUsed="False"/></output>
-</outputs>
-</component>
-<component id="18" name="DST - Flat File" componentClassID="{D658C424-8CF0-441C-B3C4-955E183B7FBA}" description="" localeId="2057" usesDispositions="false" validateExternalMetadata="True" version="0" pipelineVersion="0" contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
-<properties>
-<property id="19" name="Overwrite" dataType="System.Boolean" state="default" isArray="false" description="Specifies whether the data will overwrite or append to the destination file." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">true</property>
-<property id="20" name="Header" dataType="System.Null" state="default" isArray="false" description="Specifies the text to write to the destination file before any data is written." typeConverter="" UITypeEditor="" containsID="false" expressionType="Notify"/></properties>
-<connections>
-<connection id="21" name="FlatFileConnection" description="" connectionManagerID="{6C2A8BE8-4EBD-4ED9-8431-9E8D2F69C98A}"/></connections>
-<inputs>
-<input id="22" name="SRC - Flat File_Output_DST - Flat File" description="" hasSideEffects="true" dangling="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed"><inputColumns>
-<inputColumn id="25" name="" description="" lineageId="10" usageType="readOnly" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="23" mappedColumnId="0"/>
-<inputColumn id="26" name="" description="" lineageId="13" usageType="readOnly" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="24" mappedColumnId="0"/>
-</inputColumns><externalMetadataColumns isUsed="True">
-<externalMetadataColumn id="23" name="FullName" description="" precision="0" scale="0" length="100" dataType="wstr" codePage="0" mappedColumnId="0"/>
-<externalMetadataColumn id="24" name="Age" description="" precision="0" scale="0" length="0" dataType="i4" codePage="0" mappedColumnId="0"/></externalMetadataColumns></input>
-</inputs>
-</component>
-</components>
-<paths>
-<path id="27" name="SRC - Flat File_Output_DST - Flat File" description="" startId="5" endId="22"/>
-</paths></pipeline></DTS:ObjectData></DTS:Executable>
-<DTS:Executable DTS:ExecutableType="SSIS.Pipeline.2">
-<DTS:Property DTS:Name="ExecutionLocation">0</DTS:Property>
-<DTS:Property DTS:Name="ExecutionAddress"></DTS:Property>
-<DTS:Property DTS:Name="TaskContact">Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1</DTS:Property>
-<DTS:Property DTS:Name="ForceExecValue">0</DTS:Property>
-<DTS:Property DTS:Name="ExecValue" DTS:DataType="3">0</DTS:Property>
-<DTS:Property DTS:Name="ForceExecutionResult">-1</DTS:Property>
-<DTS:Property DTS:Name="Disabled">0</DTS:Property>
-<DTS:Property DTS:Name="FailPackageOnFailure">0</DTS:Property>
-<DTS:Property DTS:Name="FailParentOnFailure">0</DTS:Property>
-<DTS:Property DTS:Name="MaxErrorCount">1</DTS:Property>
-<DTS:Property DTS:Name="ISOLevel">1048576</DTS:Property>
-<DTS:Property DTS:Name="LocaleID">-1</DTS:Property>
-<DTS:Property DTS:Name="TransactionOption">1</DTS:Property>
-<DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
-<DTS:LoggingOptions>
-<DTS:Property DTS:Name="LoggingMode">0</DTS:Property>
-<DTS:Property DTS:Name="FilterKind">1</DTS:Property>
-<DTS:Property DTS:Name="EventFilter" DTS:DataType="8"></DTS:Property></DTS:LoggingOptions>
-<DTS:Property DTS:Name="ObjectName">Data Flow Task</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{6F686474-1D81-49F2-8B28-FD334C19A963}</DTS:Property>
-<DTS:Property DTS:Name="Description">Data Flow Task</DTS:Property>
-<DTS:Property DTS:Name="CreationName">SSIS.Pipeline.2</DTS:Property>
-<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property><DTS:ObjectData><pipeline id="0" name="pipelineXml" description="pipelineXml" defaultBufferMaxRows="10000" engineThreads="10" defaultBufferSize="10485760" BLOBTempStoragePath="" bufferTempStoragePath="" runInOptimizedMode="true">
-<components>
-<component id="1" name="Script Component" componentClassID="{2E42D45B-F83C-400F-8D77-61DDE6A7DF29}" description="Executes a custom script." localeId="-1" usesDispositions="false" validateExternalMetadata="True" version="4" pipelineVersion="0" contactInfo="Executes a custom script.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
-<properties>
-<property id="5" name="SourceCode" dataType="System.String" state="cdata" isArray="true" description="Stores the source code of the component" typeConverter="" UITypeEditor="" containsID="false" expressionType="None"><arrayElements arrayElementCount="0"/></property>
-<property id="6" name="BinaryCode" dataType="System.String" state="cdata" isArray="true" description="Stores the binary representation of the component" typeConverter="" UITypeEditor="" containsID="false" expressionType="None"><arrayElements arrayElementCount="0"/></property>
-<property id="7" name="VSTAProjectName" dataType="System.String" state="default" isArray="false" description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package." typeConverter="NOTBROWSABLE" UITypeEditor="" containsID="false" expressionType="None">SC_f8da2c0219f54550b3df24a0a01cefa6</property>
-<property id="8" name="ScriptLanguage" dataType="System.String" state="default" isArray="false" description="Specifies the programming language used by the script." typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages, Microsoft.SqlServer.VSTAScriptingLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" UITypeEditor="" containsID="false" expressionType="None">CSharp</property>
-<property id="9" name="ReadOnlyVariables" dataType="System.String" state="default" isArray="false" description="Specifies a comma-separated list of read-only variables." typeConverter="" UITypeEditor="Microsoft.SqlServer.Dts.Pipeline.ScriptUIVariablePickerDlg, Microsoft.SqlServer.TxScript, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" containsID="false" expressionType="None"></property>
-<property id="10" name="ReadWriteVariables" dataType="System.String" state="default" isArray="false" description="Specifies a comma-separated list of read/write variables." typeConverter="" UITypeEditor="Microsoft.SqlServer.Dts.Pipeline.ScriptUIVariablePickerDlg, Microsoft.SqlServer.TxScript, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" containsID="false" expressionType="None"></property>
-<property id="11" name="BreakpointCollection" dataType="System.String" state="default" isArray="true" description="List of breakpoints present on the script." typeConverter="NOTBROWSABLE" UITypeEditor="" containsID="false" expressionType="None"><arrayElements arrayElementCount="0"/></property>
-<property id="12" name="UserComponentTypeName" dataType="System.String" state="default" isArray="false" description="" typeConverter="" UITypeEditor="" containsID="false" expressionType="None">Microsoft.SqlServer.Dts.Pipeline.ScriptComponentHost, Microsoft.SqlServer.TxScript, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property></properties>
-<inputs>
-<input id="3" name="Input 0" description="" hasSideEffects="true" dangling="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed"><externalMetadataColumns isUsed="False"/></input>
-</inputs>
-<outputs>
-<output id="4" name="Output 0" description="" exclusionGroup="0" synchronousInputId="3" deleteOutputOnPathDetached="false" hasSideEffects="false" dangling="false" isErrorOut="false" isSorted="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed"><externalMetadataColumns isUsed="False"/></output>
-</outputs>
-</component>
-</components></pipeline></DTS:ObjectData></DTS:Executable>
-<DTS:Property DTS:Name="ObjectName">A - 02 - FLATFILE - FLATFILE</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{5BBDA947-9E9D-49E9-8098-02C15B4A1D6B}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName">SSIS.Package.2</DTS:Property>
-<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property>
-<DTS:PackageVariable>
-<DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;TaskHost xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsDataFlowDiagram&gt;&lt;dwd:Layout /&gt;&lt;/dwd:DtsDataFlowDiagram&gt;&lt;/TaskHost&gt;</DTS:Property>
-<DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">{5695134D-0589-4268-A1D2-91C6CA6FBB32}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{65BF0AA4-9CA3-495C-A64C-A35F6144CCD2}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
-<DTS:PackageVariable>
-<DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;PipelinePath xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:SourceName&gt;Output&lt;/dwd:SourceName&gt;&lt;dwd:DestinationName&gt;SRC - Flat File_Output_DST - Flat File&lt;/dwd:DestinationName&gt;&lt;/PipelinePath&gt;</DTS:Property>
-<DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">{5695134D-0589-4268-A1D2-91C6CA6FBB32}-27</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{5BE7B413-ECAA-4CD6-8667-8C9659845DFA}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
-<DTS:PackageVariable>
-<DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;Package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsControlFlowDiagram&gt;&lt;dwd:BoundingLeft&gt;-5019&lt;/dwd:BoundingLeft&gt;&lt;dwd:BoundingTop&gt;-4146&lt;/dwd:BoundingTop&gt;&lt;dwd:Layout&gt;&lt;dds&gt;
-  &lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout100" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout100" version="7" nextobject="5" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-6019" scrolltop="-5146" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="33020" y="16748" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;
-    &lt;font&gt;
-      &lt;ddsxmlobjectstreamwrapper binary="01010000900180380100065461686f6d61" /&gt;
-    &lt;/font&gt;
-    &lt;mouseicon&gt;
-      &lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;
-    &lt;/mouseicon&gt;
-  &lt;/diagram&gt;
-  &lt;layoutmanager&gt;
-    &lt;ddsxmlobj /&gt;
-  &lt;/layoutmanager&gt;
-  &lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" left="0" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
-    &lt;control&gt;
-      &lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;
-    &lt;/control&gt;
-    &lt;layoutobject&gt;
-      &lt;ddsxmlobj&gt;
-        &lt;property name="LogicalObject" value="{5695134D-0589-4268-A1D2-91C6CA6FBB32}" vartype="8" /&gt;
-        &lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;
-      &lt;/ddsxmlobj&gt;
-    &lt;/layoutobject&gt;
-    &lt;shape groupshapeid="0" groupnode="0" /&gt;
-  &lt;/ddscontrol&gt;
-  &lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="The script component includes no code. Edit the component to include code." left="3268" top="-1945" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
-    &lt;control&gt;
-      &lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;
-    &lt;/control&gt;
-    &lt;layoutobject&gt;
-      &lt;ddsxmlobj&gt;
-        &lt;property name="LogicalObject" value="{6F686474-1D81-49F2-8B28-FD334C19A963}" vartype="8" /&gt;
-        &lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;
-      &lt;/ddsxmlobj&gt;
-    &lt;/layoutobject&gt;
-    &lt;shape groupshapeid="0" groupnode="0" /&gt;
-  &lt;/ddscontrol&gt;
-&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;-6019&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-5146&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
-<DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">{5BBDA947-9E9D-49E9-8098-02C15B4A1D6B}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{C01C847B-D3CE-462A-9CF2-295DC0320B88}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
-<DTS:PackageVariable>
-<DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;TaskHost xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsDataFlowDiagram&gt;&lt;dwd:Layout&gt;&lt;dds&gt;
-  &lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout100" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout100" version="7" nextobject="5" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="0" scrolltop="0" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="33020" y="15822" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="0" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;
-    &lt;font&gt;
-      &lt;ddsxmlobjectstreamwrapper binary="01010000900180380100065461686f6d61" /&gt;
-    &lt;/font&gt;
-    &lt;mouseicon&gt;
-      &lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;
-    &lt;/mouseicon&gt;
-  &lt;/diagram&gt;
-  &lt;layoutmanager&gt;
-    &lt;ddsxmlobj /&gt;
-  &lt;/layoutmanager&gt;
-  &lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="The script component includes no code. Edit the component to include code." left="7699" top="3149" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
-    &lt;control&gt;
-      &lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;
-    &lt;/control&gt;
-    &lt;layoutobject&gt;
-      &lt;ddsxmlobj&gt;
-        &lt;property name="LogicalObject" value="{6F686474-1D81-49F2-8B28-FD334C19A963}/components/1" vartype="8" /&gt;
-        &lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;
-      &lt;/ddsxmlobj&gt;
-    &lt;/layoutobject&gt;
-    &lt;shape groupshapeid="0" groupnode="0" /&gt;
-  &lt;/ddscontrol&gt;
-&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;/dwd:DtsDataFlowDiagram&gt;&lt;/TaskHost&gt;</DTS:Property>
-<DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">{6F686474-1D81-49F2-8B28-FD334C19A963}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{311CA688-9DA1-4C9A-8588-E2B953D1A856}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
-<DTS:PackageVariable>
-<DTS:Property DTS:Name="PackageVariableValue" DTS:DataType="8">&lt;Package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsControlFlowDiagram&gt;&lt;dwd:BoundingLeft&gt;-5019&lt;/dwd:BoundingLeft&gt;&lt;dwd:BoundingTop&gt;-4146&lt;/dwd:BoundingTop&gt;&lt;dwd:Layout&gt;&lt;dds&gt;
-  &lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout100" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout100" version="7" nextobject="5" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-6019" scrolltop="-5146" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="33020" y="16748" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;
-    &lt;font&gt;
-      &lt;ddsxmlobjectstreamwrapper binary="01010000900180380100065461686f6d61" /&gt;
-    &lt;/font&gt;
-    &lt;mouseicon&gt;
-      &lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;
-    &lt;/mouseicon&gt;
-  &lt;/diagram&gt;
-  &lt;layoutmanager&gt;
-    &lt;ddsxmlobj /&gt;
-  &lt;/layoutmanager&gt;
-  &lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" left="0" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
-    &lt;control&gt;
-      &lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;
-    &lt;/control&gt;
-    &lt;layoutobject&gt;
-      &lt;ddsxmlobj&gt;
-        &lt;property name="LogicalObject" value="{5695134D-0589-4268-A1D2-91C6CA6FBB32}" vartype="8" /&gt;
-        &lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;
-      &lt;/ddsxmlobj&gt;
-    &lt;/layoutobject&gt;
-    &lt;shape groupshapeid="0" groupnode="0" /&gt;
-  &lt;/ddscontrol&gt;
-  &lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="The script component includes no code. Edit the component to include code." left="3268" top="-1945" logicalid="4" controlid="4" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;
-    &lt;control&gt;
-      &lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;
-    &lt;/control&gt;
-    &lt;layoutobject&gt;
-      &lt;ddsxmlobj&gt;
-        &lt;property name="LogicalObject" value="{6F686474-1D81-49F2-8B28-FD334C19A963}" vartype="8" /&gt;
-        &lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;
-      &lt;/ddsxmlobj&gt;
-    &lt;/layoutobject&gt;
-    &lt;shape groupshapeid="0" groupnode="0" /&gt;
-  &lt;/ddscontrol&gt;
-&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;-6019&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-5146&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
-<DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
-<DTS:Property DTS:Name="ObjectName">package-diagram</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{197564DA-CE8D-4A89-B9D6-DBB062F3A46E}</DTS:Property>
-<DTS:Property DTS:Name="Description"></DTS:Property>
-<DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable></DTS:Executable>
+<?xml version="1.0" encoding="utf-8"?>
+<DTS:Executable DTS:ExecutableType="SSIS.Package.2" xmlns:DTS="www.microsoft.com/SqlServer/Dts">
+  <DTS:Property DTS:Name="PackageFormatVersion">3</DTS:Property>
+  <DTS:Property DTS:Name="CreatorName">richard</DTS:Property>
+  <DTS:Property DTS:Name="CreatorComputerName">DEV100</DTS:Property>
+  <DTS:Property DTS:DataType="7" DTS:Name="CreationDate">06/24/2019 22:32:44</DTS:Property>
+  <DTS:Property DTS:Name="ProtectionLevel">1</DTS:Property>
+  <DTS:Property DTS:Name="MaxConcurrentExecutables">-1</DTS:Property>
+  <DTS:Property DTS:Name="PackagePriorityClass">0</DTS:Property>
+  <DTS:Property DTS:Name="VersionMajor">0</DTS:Property>
+  <DTS:Property DTS:Name="VersionMinor">0</DTS:Property>
+  <DTS:Property DTS:Name="VersionBuild">0</DTS:Property>
+  <DTS:Property DTS:Name="VersionGUID">{7CCCFFC3-4738-4A16-B83E-463BFE669427}</DTS:Property>
+  <DTS:Property DTS:Name="EnableConfig">0</DTS:Property>
+  <DTS:Property DTS:Name="CheckpointFileName"></DTS:Property>
+  <DTS:Property DTS:Name="SaveCheckpoints">0</DTS:Property>
+  <DTS:Property DTS:Name="CheckpointUsage">0</DTS:Property>
+  <DTS:Property DTS:Name="SuppressConfigurationWarnings">0</DTS:Property>
+  <DTS:Property DTS:Name="VersionComments"></DTS:Property>
+  <DTS:Property DTS:Name="PackageType">0</DTS:Property>
+  <DTS:Property DTS:Name="LastModifiedProductVersion">10.0.2531.0</DTS:Property>
+  <DTS:Property DTS:Name="CreationName">SSIS.Package.2</DTS:Property>
+  <DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
+  <DTS:Property DTS:Name="Description"></DTS:Property>
+  <DTS:Property DTS:Name="Disabled">0</DTS:Property>
+  <DTS:Property DTS:Name="DTSID">{5BBDA947-9E9D-49E9-8098-02C15B4A1D6B}</DTS:Property>
+  <DTS:Property DTS:DataType="3" DTS:Name="ExecValue">0</DTS:Property>
+  <DTS:Property DTS:Name="ForceExecValue">0</DTS:Property>
+  <DTS:Property DTS:Name="ForceExecutionResult">-1</DTS:Property>
+  <DTS:Property DTS:Name="FailPackageOnFailure">0</DTS:Property>
+  <DTS:Property DTS:Name="FailParentOnFailure">0</DTS:Property>
+  <DTS:Property DTS:Name="MaxErrorCount">1</DTS:Property>
+  <DTS:Property DTS:Name="ISOLevel">1048576</DTS:Property>
+  <DTS:Property DTS:Name="TransactionOption">1</DTS:Property>
+  <DTS:Property DTS:Name="ObjectName">A - 02 - FLATFILE - FLATFILE</DTS:Property>
+  <DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property>
+  <DTS:Property DTS:Name="LocaleID">2057</DTS:Property>
+  <DTS:ConnectionManager>
+    <DTS:ObjectData>
+      <DTS:ConnectionManager>
+        <DTS:FlatFileColumn>
+          <DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x002C_</DTS:Property>
+          <DTS:Property DTS:Name="DataType">130</DTS:Property>
+          <DTS:Property DTS:Name="ObjectName">FullName</DTS:Property>
+          <DTS:Property DTS:Name="DTSID">{3D7E7C69-4B16-4BFB-A984-481E1309791B}</DTS:Property>
+          <DTS:Property DTS:Name="CreationName"></DTS:Property>
+          <DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
+          <DTS:Property DTS:Name="MaximumWidth">100</DTS:Property>
+          <DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
+          <DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
+          <DTS:Property DTS:Name="DataScale">0</DTS:Property>
+          <DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
+          <DTS:Property DTS:Name="Description"></DTS:Property>
+        </DTS:FlatFileColumn>
+        <DTS:FlatFileColumn>
+          <DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x000A_</DTS:Property>
+          <DTS:Property DTS:Name="DataType">3</DTS:Property>
+          <DTS:Property DTS:Name="ObjectName">Age</DTS:Property>
+          <DTS:Property DTS:Name="DTSID">{7F3AB917-FD1B-4692-96B1-FF28DC88A345}</DTS:Property>
+          <DTS:Property DTS:Name="CreationName"></DTS:Property>
+          <DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
+          <DTS:Property DTS:Name="MaximumWidth">0</DTS:Property>
+          <DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
+          <DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
+          <DTS:Property DTS:Name="DataScale">0</DTS:Property>
+          <DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
+          <DTS:Property DTS:Name="Description"></DTS:Property>
+        </DTS:FlatFileColumn>
+        <DTS:Property DTS:Name="Format">Delimited</DTS:Property>
+        <DTS:Property DTS:Name="LocaleID">2057</DTS:Property>
+        <DTS:Property DTS:Name="HeaderRowDelimiter" xml:space="preserve">_x000D__x000A_</DTS:Property>
+        <DTS:Property DTS:Name="ColumnNamesInFirstDataRow">-1</DTS:Property>
+        <DTS:Property DTS:Name="RowDelimiter" xml:space="preserve">_x000A_</DTS:Property>
+        <DTS:Property DTS:Name="CodePage">1252</DTS:Property>
+        <DTS:Property DTS:Name="ConnectionString">c:\temp\FlatFile_Source.csv</DTS:Property>
+        <DTS:Property DTS:Name="TextQualifier">&lt;none&gt;</DTS:Property>
+        <DTS:Property DTS:Name="Unicode">0</DTS:Property>
+        <DTS:Property DTS:Name="DataRowsToSkip">0</DTS:Property>
+        <DTS:Property DTS:Name="HeaderRowsToSkip">0</DTS:Property>
+        <DTS:Property DTS:Name="FileUsageType">0</DTS:Property>
+      </DTS:ConnectionManager>
+    </DTS:ObjectData>
+    <DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
+    <DTS:Property DTS:Name="ObjectName">FlatFileConn_Source</DTS:Property>
+    <DTS:Property DTS:Name="DTSID">{2EA04720-DCC5-4D5D-A17F-A682E59CD41D}</DTS:Property>
+    <DTS:Property DTS:Name="Description"></DTS:Property>
+    <DTS:Property DTS:Name="CreationName">FLATFILE</DTS:Property>
+  </DTS:ConnectionManager>
+  <DTS:ConnectionManager>
+    <DTS:ObjectData>
+      <DTS:ConnectionManager>
+        <DTS:FlatFileColumn>
+          <DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x002C_</DTS:Property>
+          <DTS:Property DTS:Name="DataType">130</DTS:Property>
+          <DTS:Property DTS:Name="ObjectName">FullName</DTS:Property>
+          <DTS:Property DTS:Name="DTSID">{F1089AAE-C1B2-4903-8290-C5E507C9C660}</DTS:Property>
+          <DTS:Property DTS:Name="CreationName"></DTS:Property>
+          <DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
+          <DTS:Property DTS:Name="MaximumWidth">100</DTS:Property>
+          <DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
+          <DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
+          <DTS:Property DTS:Name="DataScale">0</DTS:Property>
+          <DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
+          <DTS:Property DTS:Name="Description"></DTS:Property>
+        </DTS:FlatFileColumn>
+        <DTS:FlatFileColumn>
+          <DTS:Property DTS:Name="ColumnDelimiter" xml:space="preserve">_x000A_</DTS:Property>
+          <DTS:Property DTS:Name="DataType">3</DTS:Property>
+          <DTS:Property DTS:Name="ObjectName">Age</DTS:Property>
+          <DTS:Property DTS:Name="DTSID">{DF61B236-8BE7-4B87-A32A-14B57B45EB61}</DTS:Property>
+          <DTS:Property DTS:Name="CreationName"></DTS:Property>
+          <DTS:Property DTS:Name="ColumnType">Delimited</DTS:Property>
+          <DTS:Property DTS:Name="MaximumWidth">0</DTS:Property>
+          <DTS:Property DTS:Name="ColumnWidth">0</DTS:Property>
+          <DTS:Property DTS:Name="DataPrecision">0</DTS:Property>
+          <DTS:Property DTS:Name="DataScale">0</DTS:Property>
+          <DTS:Property DTS:Name="TextQualified">-1</DTS:Property>
+          <DTS:Property DTS:Name="Description"></DTS:Property>
+        </DTS:FlatFileColumn>
+        <DTS:Property DTS:Name="Format">Delimited</DTS:Property>
+        <DTS:Property DTS:Name="LocaleID">2057</DTS:Property>
+        <DTS:Property DTS:Name="HeaderRowDelimiter" xml:space="preserve">_x000D__x000A_</DTS:Property>
+        <DTS:Property DTS:Name="ColumnNamesInFirstDataRow">-1</DTS:Property>
+        <DTS:Property DTS:Name="RowDelimiter" xml:space="preserve">_x000A_</DTS:Property>
+        <DTS:Property DTS:Name="CodePage">1252</DTS:Property>
+        <DTS:Property DTS:Name="ConnectionString">c:\temp\FlatFile_Destination.csv</DTS:Property>
+        <DTS:Property DTS:Name="TextQualifier">&lt;none&gt;</DTS:Property>
+        <DTS:Property DTS:Name="Unicode">0</DTS:Property>
+        <DTS:Property DTS:Name="DataRowsToSkip">0</DTS:Property>
+        <DTS:Property DTS:Name="HeaderRowsToSkip">0</DTS:Property>
+        <DTS:Property DTS:Name="FileUsageType">0</DTS:Property>
+      </DTS:ConnectionManager>
+    </DTS:ObjectData>
+    <DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
+    <DTS:Property DTS:Name="ObjectName">FlatFileConn_Destination</DTS:Property>
+    <DTS:Property DTS:Name="DTSID">{6C2A8BE8-4EBD-4ED9-8431-9E8D2F69C98A}</DTS:Property>
+    <DTS:Property DTS:Name="Description"></DTS:Property>
+    <DTS:Property DTS:Name="CreationName">FLATFILE</DTS:Property>
+  </DTS:ConnectionManager>
+  <DTS:LoggingOptions>
+    <DTS:Property DTS:Name="LoggingMode">0</DTS:Property>
+    <DTS:Property DTS:Name="FilterKind">1</DTS:Property>
+    <DTS:Property DTS:DataType="8" DTS:Name="EventFilter"></DTS:Property>
+  </DTS:LoggingOptions>
+  <DTS:Executable DTS:ExecutableType="SSIS.Pipeline.2">
+    <DTS:Property DTS:Name="DelayValidation">0</DTS:Property>
+    <DTS:Property DTS:Name="Description"></DTS:Property>
+    <DTS:Property DTS:Name="Disabled">0</DTS:Property>
+    <DTS:Property DTS:Name="DTSID">{5695134D-0589-4268-A1D2-91C6CA6FBB32}</DTS:Property>
+    <DTS:Property DTS:DataType="3" DTS:Name="ExecValue">0</DTS:Property>
+    <DTS:Property DTS:Name="ForceExecValue">0</DTS:Property>
+    <DTS:Property DTS:Name="ForceExecutionResult">-1</DTS:Property>
+    <DTS:Property DTS:Name="FailPackageOnFailure">0</DTS:Property>
+    <DTS:Property DTS:Name="FailParentOnFailure">0</DTS:Property>
+    <DTS:Property DTS:Name="MaxErrorCount">1</DTS:Property>
+    <DTS:Property DTS:Name="ISOLevel">1048576</DTS:Property>
+    <DTS:Property DTS:Name="TransactionOption">1</DTS:Property>
+    <DTS:Property DTS:Name="ObjectName">DFT - FLATFILE - FLATFILE</DTS:Property>
+    <DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property>
+    <DTS:Property DTS:Name="LocaleID">-1</DTS:Property>
+    <DTS:Property DTS:Name="ExecutionAddress"></DTS:Property>
+    <DTS:Property DTS:Name="ExecutionLocation">0</DTS:Property>
+    <DTS:Property DTS:Name="CreationName">SSIS.Pipeline.2</DTS:Property>
+    <DTS:Property DTS:Name="TaskContact">Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1</DTS:Property>
+    <DTS:LoggingOptions>
+      <DTS:Property DTS:Name="LoggingMode">0</DTS:Property>
+      <DTS:Property DTS:Name="FilterKind">1</DTS:Property>
+      <DTS:Property DTS:DataType="8" DTS:Name="EventFilter"></DTS:Property>
+    </DTS:LoggingOptions>
+    <DTS:ObjectData>
+      <pipeline BLOBTempStoragePath="" bufferTempStoragePath="" description="pipelineXml" id="0" name="pipelineXml">
+        <components>
+          <component id="1" name="SRC - Flat File" componentClassID="{5ACD952A-F16A-41D8-A681-713640837664}" description="" localeId="2057" usesDispositions="true" validateExternalMetadata="True" version="1" pipelineVersion="0" contactInfo="Flat File Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+            <properties>
+              <property id="2" name="RetainNulls" dataType="System.Boolean" state="default" isArray="false" description="Specifies whether zero-length columns are treated as null." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
+              <property id="3" name="FileNameColumnName" dataType="System.String" state="default" isArray="false" description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated." typeConverter="" UITypeEditor="" containsID="false" expressionType="None" />
+            </properties>
+            <connections>
+              <connection connectionManagerID="{2EA04720-DCC5-4D5D-A17F-A682E59CD41D}" description="" id="4" name="FlatFileConnection"></connection>
+            </connections>
+            <outputs>
+              <output id="5" name="Output" description="" exclusionGroup="0" synchronousInputId="0" deleteOutputOnPathDetached="false" hasSideEffects="false" dangling="false" isErrorOut="false" isSorted="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed">
+                <outputColumns>
+                  <outputColumn id="10" name="FullName" description="" lineageId="10" precision="0" scale="0" length="100" dataType="wstr" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="0" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" truncationRowDisposition="FailComponent" externalMetadataColumnId="8" mappedColumnId="0">
+                    <properties>
+                      <property id="11" name="FastParse" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the column uses the faster, locale-neutral parsing routines." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
+                      <property id="12" name="UseBinaryFormat" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the data is in binary format." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
+                    </properties>
+                  </outputColumn>
+                  <outputColumn id="13" name="Age" description="" lineageId="13" precision="0" scale="0" length="0" dataType="i4" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="0" errorOrTruncationOperation="Conversion" errorRowDisposition="FailComponent" truncationRowDisposition="FailComponent" externalMetadataColumnId="9" mappedColumnId="0">
+                    <properties>
+                      <property id="14" name="FastParse" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the column uses the faster, locale-neutral parsing routines." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
+                      <property id="15" name="UseBinaryFormat" dataType="System.Boolean" state="default" isArray="false" description="Indicates whether the data is in binary format." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">false</property>
+                    </properties>
+                  </outputColumn>
+                </outputColumns>
+                <externalMetadataColumns isUsed="True">
+                  <externalMetadataColumn codePage="0" dataType="wstr" description="" id="8" length="100" mappedColumnId="0" name="FullName" precision="0" scale="0"></externalMetadataColumn>
+                  <externalMetadataColumn codePage="0" dataType="i4" description="" id="9" length="0" mappedColumnId="0" name="Age" precision="0" scale="0"></externalMetadataColumn>
+                </externalMetadataColumns>
+              </output>
+              <output id="6" name="Error" description="" exclusionGroup="0" synchronousInputId="0" deleteOutputOnPathDetached="false" hasSideEffects="false" dangling="false" isErrorOut="true" isSorted="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed">
+                <outputColumns>
+                  <outputColumn id="7" name="Flat File Source Error Output Column" description="Flat File Source Error Output Column" lineageId="7" precision="0" scale="0" length="0" dataType="text" codePage="1252" sortKeyPosition="0" comparisonFlags="0" specialFlags="0" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="0" mappedColumnId="0" />
+                  <outputColumn id="16" name="ErrorCode" description="" lineageId="16" precision="0" scale="0" length="0" dataType="i4" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="1" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="0" mappedColumnId="0" />
+                  <outputColumn id="17" name="ErrorColumn" description="" lineageId="17" precision="0" scale="0" length="0" dataType="i4" codePage="0" sortKeyPosition="0" comparisonFlags="0" specialFlags="2" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="0" mappedColumnId="0" />
+                </outputColumns>
+                <externalMetadataColumns isUsed="False"></externalMetadataColumns>
+              </output>
+            </outputs>
+          </component>
+          <component id="18" name="DST - Flat File" componentClassID="{D658C424-8CF0-441C-B3C4-955E183B7FBA}" description="" localeId="2057" usesDispositions="false" validateExternalMetadata="True" version="0" pipelineVersion="0" contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+            <properties>
+              <property id="19" name="Overwrite" dataType="System.Boolean" state="default" isArray="false" description="Specifies whether the data will overwrite or append to the destination file." typeConverter="" UITypeEditor="" containsID="false" expressionType="None">true</property>
+              <property id="20" name="Header" dataType="System.Null" state="default" isArray="false" description="Specifies the text to write to the destination file before any data is written." typeConverter="" UITypeEditor="" containsID="false" expressionType="Notify" />
+            </properties>
+            <connections>
+              <connection connectionManagerID="{6C2A8BE8-4EBD-4ED9-8431-9E8D2F69C98A}" description="" id="21" name="FlatFileConnection"></connection>
+            </connections>
+            <inputs>
+              <input id="22" name="SRC - Flat File_Output_DST - Flat File" description="" hasSideEffects="true" dangling="false" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed">
+                <inputColumns>
+                  <inputColumn id="25" name="" description="" lineageId="10" usageType="readOnly" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="23" mappedColumnId="0" />
+                  <inputColumn id="26" name="" description="" lineageId="13" usageType="readOnly" errorOrTruncationOperation="" errorRowDisposition="NotUsed" truncationRowDisposition="NotUsed" externalMetadataColumnId="24" mappedColumnId="0" />
+                </inputColumns>
+                <externalMetadataColumns isUsed="True">
+                  <externalMetadataColumn codePage="0" dataType="wstr" description="" id="23" length="100" mappedColumnId="0" name="FullName" precision="0" scale="0"></externalMetadataColumn>
+                  <externalMetadataColumn codePage="0" dataType="i4" description="" id="24" length="0" mappedColumnId="0" name="Age" precision="0" scale="0"></externalMetadataColumn>
+                </externalMetadataColumns>
+              </input>
+            </inputs>
+          </component>
+        </components>
+        <paths>
+          <path description="" endId="22" id="27" name="SRC - Flat File_Output_DST - Flat File" startId="5"></path>
+        </paths>
+      </pipeline>
+    </DTS:ObjectData>
+  </DTS:Executable>
+</DTS:Executable>
