@@ -1,0 +1,6 @@
+
+MS-DTX
+https://docs.microsoft.com/en-us/openspecs/sql_data_portability/ms-dtsx/056f8eb5-37b5-40b6-aa86-963f15fe399e
+
+MS-DTX2
+https://docs.microsoft.com/en-us/openspecs/sql_data_portability/ms-dtsx2/b2f96f16-3e16-414c-93ec-ceca000ebd34

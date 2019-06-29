@@ -1,5 +1,32 @@
 ﻿
-        clear-host
+Clear-Host
+
+$g_location = (Split-Path $MyInvocation.MyCommand.Definition).ToString()
+
+#Remove-Item -Path Function:Get-SsisComponentName
+
+function Get-SsisComponentName {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory=$true)]
+        [string] $id
+    )
+
+    BEGIN {}
+
+    PROCESS {
+        $component_csv = "$($g_location)\ComponentIDs.csv"
+        $ComponentLookup = (Import-Csv -Path  $component_csv)
+        ($ComponentLookup | Where-Object -Property "Enumeration Value" -like $id).Description
+   }
+
+    END {}
+
+}
+
+
+#Get-SsisComponentName -id "{2E42D45B-F83C-400F-8D77-61DDE6A7DF29}"
+
 
 function Get-SsisSummary {
 
@@ -15,12 +42,9 @@ function Get-SsisSummary {
 
 
         # Create powershell variable namespace hashtable for use with Select-Xml Cmdlet
-
         $ns = @{DTS = "www.microsoft.com/SqlServer/Dts"}
 
-        
         # Create the namespace manager so that SelectSingleNode and SelectNodes method calls work
-
         [xml] $xml = New-Object System.Xml.XmlDocument
         [System.Xml.NameTable] $nt = New-Object System.Xml.NameTable
         [System.Xml.XmlNamespaceManager] $xnm = New-Object System.Xml.XmlNamespaceManager($nt)
@@ -58,10 +82,17 @@ function Get-SsisSummary {
                         }
                         $executeSQL = $counter
 
+                        $ComponentTypes = ($f | select-xml -XPath "//component" `
+                                   | % { Get-SsisComponentName -id "$($_.Node.Attributes['componentClassID'].Value)" } )
+
+
                     }
 
 
                     6 {
+
+
+
                         $pipelines = ($f | select-xml -XPath "//DTS:Executable[@DTS:CreationName='SSIS.Pipeline.3']" -Namespace $ns).Count
 
                         foreach ($conn in ($f | select-xml -XPath "//DTS:ConnectionManagers/DTS:ConnectionManager" -Namespace $ns)){
@@ -80,10 +111,16 @@ function Get-SsisSummary {
                         }
                         $executeSQL = $counter
 
+                        $ComponentTypes = ($f | select-xml -XPath "//component" `
+                                   | % { Get-SsisComponentName -id $_.Node.Attributes['componentClassID'].Value } )
+
                     }
 
                     8 {
+
+
                         $pipelines = ($f | select-xml -XPath "//DTS:Executable[@DTS:CreationName='Microsoft.Pipeline']" -Namespace $ns).Count
+
 
                         foreach ($conn in ($f | select-xml -XPath "//DTS:ConnectionManagers/DTS:ConnectionManager" -Namespace $ns)){
                             $connectionType = $conn.Node.Attributes["DTS:CreationName"].Value
@@ -92,11 +129,19 @@ function Get-SsisSummary {
                         }
 
                         $executeSQL = ($f | select-xml -XPath "//DTS:Executable[@DTS:ExecutableType='Microsoft.ExecuteSQLTask']" -Namespace $ns).Count
+
+                        $ComponentTypes = ($f | select-xml -XPath "//component" `
+                                   | % { [String] $_.Node.Attributes['componentClassID'].Value } )
+
                     }
 
                 }
 
 
+                $TaskTypes = ($f | select-xml -XPath "//DTS:Executable" -Namespace $ns `
+                           | % { [String] $_.Node.Attributes['DTS:ExecutableType'].Value } )
+
+                
 
                 # OUTPUT THE SUMMARY OBJECT TO THE PIPELINE
 
@@ -105,7 +150,9 @@ function Get-SsisSummary {
                     FullName = $f.fullname;
                     Pipelines = $pipelines;
                     ExecSQL = $executeSQL;
-                    Version = $version
+                    Version = $version;
+                    TaskTypes = $TaskTypes;
+                    ComponentTypes = $ComponentTypes
                 }
 
             }
@@ -122,8 +169,12 @@ function Get-SsisSummary {
 
 $summaries = Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects"
 
+
+$summaries
+
+<#
 $summaries | 
     Group-Object -property Version | 
     %{ New-Object -Type PSObject -Property @{ "Count" = $_.Count; "VersionNumber" = $_.Name } }
 
-
+#>
