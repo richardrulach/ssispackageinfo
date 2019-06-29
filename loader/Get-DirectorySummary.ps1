@@ -3,7 +3,6 @@ Clear-Host
 
 $g_location = (Split-Path $MyInvocation.MyCommand.Definition).ToString()
 
-#Remove-Item -Path Function:Get-SsisComponentName
 
 function Get-SsisComponentName {
     [CmdletBinding()]
@@ -24,8 +23,6 @@ function Get-SsisComponentName {
 
 }
 
-
-#Get-SsisComponentName -id "{2E42D45B-F83C-400F-8D77-61DDE6A7DF29}"
 
 
 function Get-SsisSummary {
