@@ -3,7 +3,6 @@ Clear-Host
 
 $g_location = (Split-Path $MyInvocation.MyCommand.Definition).ToString()
 
-#Remove-Item -Path Function:Get-SsisComponentName
 
 function Get-SsisComponentName {
     [CmdletBinding()]
@@ -24,8 +23,6 @@ function Get-SsisComponentName {
 
 }
 
-
-#Get-SsisComponentName -id "{2E42D45B-F83C-400F-8D77-61DDE6A7DF29}"
 
 
 function Get-SsisSummary {
@@ -58,6 +55,9 @@ function Get-SsisSummary {
             foreach ($f in $files){
                 $version = ($f | select-xml -XPath "/DTS:Executable/DTS:Property[@DTS:Name='PackageFormatVersion']" -Namespace $ns).Node.InnerText
 
+                $connectionTypes = @()
+
+                $connectionStrings = @()
 
                 switch($version){
 
@@ -67,8 +67,12 @@ function Get-SsisSummary {
 
                         foreach ($conn in ($f | select-xml -XPath "/DTS:Executable/DTS:ConnectionManager" -Namespace $ns)){
                             $connectionType = $conn.Node.SelectSingleNode("./DTS:Property[@DTS:Name='CreationName']", $xnm).InnerText
+                            $connectionTypes += $connectionType
+
                             $objectName = $conn.Node.SelectSingleNode("./DTS:Property[@DTS:Name='ObjectName']", $xnm).InnerText
+
                             $connectionString = $conn.Node.SelectSingleNode(".//DTS:Property[@DTS:Name='ConnectionString']", $xnm).InnerText
+                            $connectionStrings += $connectionString
                         }
 
                         $executeSQLTasks = ($f | select-xml -XPath "//DTS:Executable" -Namespace $ns)
@@ -97,8 +101,12 @@ function Get-SsisSummary {
 
                         foreach ($conn in ($f | select-xml -XPath "//DTS:ConnectionManagers/DTS:ConnectionManager" -Namespace $ns)){
                             $connectionType = $conn.Node.Attributes["DTS:CreationName"].Value
+                            $connectionTypes += $connectionType
+
                             $objectName = $conn.Node.Attributes["DTS:ObjectName"].Value
                             $connectionString = $conn.Node.SelectSingleNOde("./DTS:ObjectData/DTS:ConnectionManager",$xnm).Attributes["DTS:ConnectionString"].Value
+                            $connectionStrings += $connectionString
+
                         }
 
                         $executeSQLTasks = ($f | select-xml -XPath "//DTS:Executable" -Namespace $ns)
@@ -124,8 +132,12 @@ function Get-SsisSummary {
 
                         foreach ($conn in ($f | select-xml -XPath "//DTS:ConnectionManagers/DTS:ConnectionManager" -Namespace $ns)){
                             $connectionType = $conn.Node.Attributes["DTS:CreationName"].Value
+                            $connectionTypes += $connectionType
+
                             $objectName = $conn.Node.Attributes["DTS:ObjectName"].Value
+
                             $connectionString = $conn.Node.SelectSingleNOde("./DTS:ObjectData/DTS:ConnectionManager",$xnm).Attributes["DTS:ConnectionString"].Value
+                            $connectionStrings += $connectionString
                         }
 
                         $executeSQL = ($f | select-xml -XPath "//DTS:Executable[@DTS:ExecutableType='Microsoft.ExecuteSQLTask']" -Namespace $ns).Count
@@ -152,7 +164,9 @@ function Get-SsisSummary {
                     ExecSQL = $executeSQL;
                     Version = $version;
                     TaskTypes = $TaskTypes;
-                    ComponentTypes = $ComponentTypes
+                    ComponentTypes = $ComponentTypes;
+                    ConnectionTypes = $connectionTypes;
+                    ConnectionStrings = $connectionStrings
                 }
 
             }
@@ -170,11 +184,62 @@ function Get-SsisSummary {
 $summaries = Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects"
 
 
-$summaries
+$packageSummary = ( 
+      $summaries `
+    | Group-Object -property Version `
+    | %{ New-Object -Type PSObject -Property @{ "Package Version" = $_.Name;"Total Packages" = $_.Count } } `
+    | ConvertTo-Html -Fragment -Property "Package Version","Total Packages"
+)
 
-<#
-$summaries | 
-    Group-Object -property Version | 
-    %{ New-Object -Type PSObject -Property @{ "Count" = $_.Count; "VersionNumber" = $_.Name } }
 
-#>
+$componentSummary = (
+      $summaries.ComponentTypes `
+    | Group-Object `
+    | %{ New-Object -Type PSObject -Property @{ "Component" = $_.Name;"Count" = $_.Count } } `
+    | Sort-Object -Property Count -Descending `
+    | ConvertTo-Html -Fragment -Property "Component","Count" `
+)
+
+
+$taskSummary = (
+      $summaries.TaskTypes `
+    | Group-Object `
+    | %{ New-Object -Type PSObject -Property @{ "Task" = $_.Name;"Count" = $_.Count } } `
+    | Sort-Object -Property Count -Descending `
+    | ConvertTo-Html -Fragment -Property "Task","Count" `
+)
+
+
+$connectionSummary = (
+      $summaries.ConnectionTypes `
+    | Group-Object `
+    | %{ New-Object -Type PSObject -Property @{ "Connection" = $_.Name;"Count" = $_.Count } } `
+    | Sort-Object -Property Count -Descending `
+    | ConvertTo-Html -Fragment -Property "Connection","Count" `
+)
+
+
+$connectionStringSummary = (
+      $summaries.ConnectionStrings `
+    | Group-Object `
+    | %{ New-Object -Type PSObject -Property @{ "ConnectionString" = $_.Name;"Count" = $_.Count } } `
+    | Sort-Object -Property Count -Descending `
+    | ConvertTo-Html -Fragment -Property "ConnectionString","Count" `
+)
+
+
+"<h1>SSIS Package Viewer</h1>" | Out-File c:\temp\ssis.html -Force
+"<h2>Package Versions</h2>" | Out-File c:\temp\ssis.html -Append
+$packageSummary | Out-File c:\temp\ssis.html -Append
+"<h2>Tasks in use</h2>" | Out-File c:\temp\ssis.html -Append
+$taskSummary | Out-File c:\temp\ssis.html -Append
+"<h2>Pipeline components in use</h2>" | Out-File c:\temp\ssis.html -Append
+$componentSummary | Out-File c:\temp\ssis.html -Append
+"<h2>Connection Types</h2>" | Out-File c:\temp\ssis.html -Append
+$connectionSummary | Out-File c:\temp\ssis.html -Append
+"<h2>Connection Locations</h2>" | Out-File c:\temp\ssis.html -Append
+$connectionStringSummary | Out-File c:\temp\ssis.html -Append
+
+
+& c:\temp\ssis.html
+
