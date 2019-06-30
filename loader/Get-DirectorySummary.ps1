@@ -162,16 +162,45 @@ function Get-SsisSummary {
     END {}
 }
 
-#$summaries = Get-SsisSummary -Directory "C:\DEVELOPMENT\SSIS_CARDANO\SSIS"
+$summaries = Get-SsisSummary -Directory "C:\DEVELOPMENT\SSIS_CARDANO\SSIS"
 
-$summaries = Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects"
+#$summaries = Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects"
 
 
-$summaries
+$packageSummary = ( 
+      $summaries `
+    | Group-Object -property Version `
+    | %{ New-Object -Type PSObject -Property @{ "Package Version" = $_.Name;"Total Packages" = $_.Count } } `
+    | ConvertTo-Html -Fragment -Property "Package Version","Total Packages"
+)
 
-<#
-$summaries | 
-    Group-Object -property Version | 
-    %{ New-Object -Type PSObject -Property @{ "Count" = $_.Count; "VersionNumber" = $_.Name } }
 
-#>
+$componentSummary = (
+      $summaries.ComponentTypes `
+    | Group-Object `
+    | %{ New-Object -Type PSObject -Property @{ "Component" = $_.Name;"Count" = $_.Count } } `
+    | Sort-Object -Property Count -Descending `
+    | ConvertTo-Html -Fragment -Property "Component","Count" `
+)
+
+
+$taskSummary = (
+      $summaries.TaskTypes `
+    | Group-Object `
+    | %{ New-Object -Type PSObject -Property @{ "Task" = $_.Name;"Count" = $_.Count } } `
+    | Sort-Object -Property Count -Descending `
+    | ConvertTo-Html -Fragment -Property "Task","Count" `
+)
+
+
+"<h1>SSIS Package Viewer</h1>" | Out-File c:\temp\ssis.html -Force
+"<h2>Package Versions</h2>" | Out-File c:\temp\ssis.html -Append
+$packageSummary | Out-File c:\temp\ssis.html -Append
+"<h2>Tasks in use</h2>" | Out-File c:\temp\ssis.html -Append
+$taskSummary | Out-File c:\temp\ssis.html -Append
+"<h2>Pipeline components in use</h2>" | Out-File c:\temp\ssis.html -Append
+$componentSummary | Out-File c:\temp\ssis.html -Append
+
+
+& c:\temp\ssis.html
+
