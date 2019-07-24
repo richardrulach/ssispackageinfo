@@ -1,0 +1,7 @@
+
+h1 { color: blue }
+
+ul#menu li {
+    display:inline;
+    margin-right: 10px;
+}
