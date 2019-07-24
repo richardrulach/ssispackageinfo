@@ -151,8 +151,20 @@ function Get-SsisSummary {
 
 
                 $TaskTypes = ($f | select-xml -XPath "//DTS:Executable" -Namespace $ns `
-                           | % { [String] $_.Node.Attributes['DTS:ExecutableType'].Value } )
-
+                           | % { 
+                                
+                                $outString = [String] $_.Node.Attributes['DTS:ExecutableType'].Value 
+                     
+                                if ($outString.length -eq 0 -and (
+                                    $_.Node.Attributes.Count -eq 2  -and 
+                                    $_.Node.Attributes[0].Name -eq "IDREF" -and
+                                    $_.Node.Attributes[1].Name -eq "DTS:IsFrom"  )){
+                                
+                                    # KNOWN ISSUE WITH VERSION 3
+                                } else {
+                                    $outString
+                                }
+                    })
                 
 
                 # OUTPUT THE SUMMARY OBJECT TO THE PIPELINE
@@ -178,10 +190,10 @@ function Get-SsisSummary {
 
     END {}
 }
-
-#$summaries = Get-SsisSummary -Directory "C:\DEVELOPMENT\SSIS_CARDANO\SSIS"
-
-$summaries = Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects"
+get-date
+$summaries = Get-SsisSummary -Directory "C:\DEVELOPMENT\SSIS_CARDANO\SSIS"
+get-date
+#$summaries = Get-SsisSummary -Directory "C:\git\ssispackageinfo\ssis_test_projects"
 
 
 $packageSummary = ( 
@@ -229,14 +241,19 @@ $connectionStringSummary = (
 
 
 "<h1>SSIS Package Viewer</h1>" | Out-File c:\temp\ssis.html -Force
+
 "<h2>Package Versions</h2>" | Out-File c:\temp\ssis.html -Append
 $packageSummary | Out-File c:\temp\ssis.html -Append
+
 "<h2>Tasks in use</h2>" | Out-File c:\temp\ssis.html -Append
 $taskSummary | Out-File c:\temp\ssis.html -Append
+
 "<h2>Pipeline components in use</h2>" | Out-File c:\temp\ssis.html -Append
 $componentSummary | Out-File c:\temp\ssis.html -Append
+
 "<h2>Connection Types</h2>" | Out-File c:\temp\ssis.html -Append
 $connectionSummary | Out-File c:\temp\ssis.html -Append
+
 "<h2>Connection Locations</h2>" | Out-File c:\temp\ssis.html -Append
 $connectionStringSummary | Out-File c:\temp\ssis.html -Append
 
