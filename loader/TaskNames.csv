@@ -1,0 +1,17 @@
+ObjectName,TaskName
+Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask,Execute SQL Task
+Microsoft.ExecuteSQLTask,Execute SQL Task
+Microsoft.SqlServer.Dts.Tasks.ScriptTask.ScriptTask,Script Task
+SSIS.Pipeline.2,Data Flow Task
+Microsoft.Pipeline,Data Flow Task
+Microsoft.ScriptTask,Script Task
+Microsoft.SqlServer.Dts.Tasks.FileSystemTask.FileSystemTask,File System Task
+STOCK:SEQUENCE,Sequence Container
+SSIS.Package.2,Package
+Microsoft.Package,Package
+SSIS.ExecutePackageTask.2,Execute Package Task
+Microsoft.FileSystemTask,File System Task
+STOCK:FOREACHLOOP,For Each Container
+Microsoft.SqlServer.Dts.Tasks.FtpTask.FtpTask,FTP Task
+Microsoft.ExecuteProcess,Execute Process
+Microsoft.SqlServer.Dts.Tasks.ExecuteProcess.ExecuteProcess,Execute Process

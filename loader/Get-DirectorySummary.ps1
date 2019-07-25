@@ -47,6 +47,9 @@ function Get-SsisSummary {
         [System.Xml.XmlNamespaceManager] $xnm = New-Object System.Xml.XmlNamespaceManager($nt)
         $xnm.AddNamespace("DTS","www.microsoft.com/SqlServer/Dts")
 
+        # Get Task Names For Lookup Later
+        $TaskNames = Import-Csv -Path "C:\git\ssispackageinfo\loader\TaskNames.csv"
+
 
         foreach ($d in $Directory){
             write-host "$d"
@@ -154,14 +157,26 @@ function Get-SsisSummary {
                            | % { 
                                 
                                 $outString = [String] $_.Node.Attributes['DTS:ExecutableType'].Value 
+
+                                if ($outString.IndexOf(",") -gt 0){
+                                    $outString = ($outString -split ",")[0]
+                                }
+
                      
                                 if ($outString.length -eq 0 -and (
                                     $_.Node.Attributes.Count -eq 2  -and 
                                     $_.Node.Attributes[0].Name -eq "IDREF" -and
                                     $_.Node.Attributes[1].Name -eq "DTS:IsFrom"  )){
                                 
-                                    # KNOWN ISSUE WITH VERSION 3
+                                    # KNOWN ISSUE WITH VERSION 3 XML STRUCTURE
+                                    #   THESE ELEMENTS ARE NOT VISIBLE TASKS AND THEREFORE CAN BE EXCLUDED
                                 } else {
+
+
+                                    $tName = ($p | ? { $_.ObjectName -eq $outString }).TaskName
+
+                                    if ($tName.length -gt 0){ $outString = $tName }
+
                                     $outString
                                 }
                     })
